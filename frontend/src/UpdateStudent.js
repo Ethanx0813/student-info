@@ -15,7 +15,7 @@ function UpdateStudent() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/student/${id}`)
+        axios.get(`http://35.154.221.174:8081/student/${id}`)
             .then(res => {
                 const data = res.data;
                 setName(data.name);
@@ -31,7 +31,7 @@ function UpdateStudent() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.put(`http://localhost:8081/update/${id}`, { 
+        axios.put(`http://35.154.221.174:8081/update/${id}`, { 
             name: name, 
             email: email,
             fatherName: fatherName,
