@@ -7,7 +7,7 @@ function Student() {
     const [filteredStudents, setFilteredStudents] = useState([]);
 
     useEffect(() => {
-        axios.get('http://35.154.221.174:8081/')
+        axios.get('http://localhost:8081/')
             .then(res => {
                 setStudents(res.data);
                 setFilteredStudents(res.data);
@@ -17,7 +17,7 @@ function Student() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://35.154.221.174:8081/delete/${id}`);
+            await axios.delete(`http://localhost:8081/delete/${id}`);
             window.location.reload(); // Reload the page to reflect changes
         } catch (err) {
             console.log(err);

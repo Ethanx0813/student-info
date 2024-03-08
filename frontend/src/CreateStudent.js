@@ -14,7 +14,7 @@ function CreateStudent() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://35.154.221.174:8081/create', { 
+        axios.post('http://localhost:8081/create', { 
             name: name, 
             email: email,
             fatherName: fatherName,

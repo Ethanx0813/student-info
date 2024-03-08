@@ -13,7 +13,7 @@ function AddStudent() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://35.154.221.174:8081/create', { 
+        axios.post('http://localhost:8081/create', { 
             Name: name, 
             FatherName: fatherName,
             MotherName: motherName,
