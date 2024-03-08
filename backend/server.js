@@ -4,7 +4,21 @@ const mysql = require("mysql");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+// Define a custom CORS middleware to disable CORS for a specific origin
+const customCorsOptions = {
+    origin: function (origin, callback) {
+        // Check if the origin matches the one you want to disable CORS for
+        if (origin === 'http://35.154.221.174:3000') {
+            callback(null, false); // Disable CORS for this origin
+        } else {
+            callback(null, true); // Allow CORS for other origins
+        }
+    }
+};
+
+// Apply the custom CORS middleware
+app.use(cors(customCorsOptions));
 
 const db = mysql.createConnection({
     host: "database-1.cjagagyuydl1.ap-south-1.rds.amazonaws.com",
