@@ -20,6 +20,14 @@ db.connect((err) => {
         return;
     }
     console.log("Connected to database");
+    db.query("SELECT * FROM student", (err, results) => {
+        if (err) {
+            console.error("Error executing query:", err);
+            return;
+        }
+        // Output the results
+        console.log("All records from student table:", results);
+    });
 });
 
 app.get("/", (req, res) => {
